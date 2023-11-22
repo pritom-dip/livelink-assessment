@@ -3,12 +3,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 interface IProps {
-    data: ICreator;
+    creator: ICreator;
     showDescription?: boolean;
 }
 
-const Card = ({ data, showDescription = false }: IProps) => {
-    const { id, name, topic, image, description } = data || {};
+const Card = ({ creator, showDescription = false }: IProps) => {
+    const { id, name, topic, image, description } = creator || {};
     return (
         <Link href={`/creator/${id}`}>
             <figure className="flex bg-slate-100 p-4 gap-3 border-2 rounded-lg border-black">
