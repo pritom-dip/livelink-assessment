@@ -5,11 +5,11 @@ export const creatorApi = createApi({
   reducerPath: 'creatorApi',
   refetchOnFocus: true,
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://jsonplaceholder.typicode.com/'
+    baseUrl: 'http://localhost:3000'
   }),
   endpoints: builder => ({
     getCreators: builder.query<ICreator[], null>({
-      query: () => 'users'
+      query: () => '/api'
     }),
     getCreatorById: builder.query<ICreator, { id: string }>({
       query: ({ id }) => `users/${id}`
