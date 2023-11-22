@@ -1,17 +1,24 @@
 'use client';
 
-import { useAppSelector } from '@/globalRedux/hooks';
+import Card from '@/components/Card';
+import Loading from '@/components/Loading';
 import { useGetCreatorsQuery } from '@/globalRedux/services/creatorApi';
 
 export default function Home() {
-  const creators = useAppSelector(state => state.creators);
-  const { isLoading, data, error } = useGetCreatorsQuery(null);
+    const { isLoading, data, error } = useGetCreatorsQuery(null);
 
-  console.log({ creators, isLoading, data, error });
+    if (isLoading) return <Loading />;
 
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between">
-      Hello world
-    </main>
-  );
+    if (!data || error) return <div>There is an error!</div>;
+
+    return (
+        <main className="conatiner mx-auto max-w-6xl">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+                {data &&
+                    data.data?.map(creator => (
+                        <Card key={creator.id} data={creator} />
+                    ))}
+            </div>
+        </main>
+    );
 }
