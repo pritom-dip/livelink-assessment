@@ -5,7 +5,7 @@ export const creatorApi = createApi({
     reducerPath: 'creatorApi',
     refetchOnFocus: true,
     baseQuery: fetchBaseQuery({
-        baseUrl: 'http://localhost:3000/api'
+        baseUrl: '/api'
     }),
     endpoints: builder => ({
         getCreators: builder.query<{ data: ICreator[] }, null>({
