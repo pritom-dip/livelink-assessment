@@ -14,7 +14,7 @@ export default function Home() {
 
     return (
         <div className="conatiner mx-auto max-w-6xl">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 mx-3">
                 {data &&
                     data.data?.map((creator: ICreator) => (
                         <Card key={creator?.id} creator={creator} />

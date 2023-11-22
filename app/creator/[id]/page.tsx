@@ -14,7 +14,7 @@ export default function Creator({ params }: { params: { id: string } }) {
 
     return (
         <div className="mx-auto max-w-2xl">
-            <div className="grid grid-cols-1 gap-4">
+            <div className="grid grid-cols-1 gap-4 mx-3">
                 <Card creator={data?.data} showDescription />
             </div>
         </div>
